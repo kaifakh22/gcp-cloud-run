@@ -1,0 +1,19 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      [
+        'build',
+        '-t',
+        'northamerica-northeast1-docker.pkg.dev/$PROJECT_ID/account-ingestion/node-app:$SHORT_SHA',
+        '.'
+      ]
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      [
+        'push',
+        'northamerica-northeast1-docker.pkg.dev/$PROJECT_ID/account-ingestion/node-app:$SHORT_SHA'
+      ]
+
+images:
+  - 'northamerica-northeast1-docker.pkg.dev/$PROJECT_ID/account-ingestion/node-app:$SHORT_SHA'
