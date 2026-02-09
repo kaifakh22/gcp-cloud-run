@@ -1,0 +1,17 @@
+options:
+  logging: CLOUD_LOGGING_ONLY
+
+steps:
+  - name: 'hashicorp/terraform:1.6.6'
+    entrypoint: 'sh'
+    args:
+      - '-c'
+      - |
+        cd gcp-cloud-run/terraform
+
+        terraform init \
+          -backend-config="${_BACKEND_CONFIG_BUCKET}" \
+          -backend-config="${_BACKEND_CONFIG_PREFIX}"
+
+        terraform ${_TF_COMMAND} \
+          -var-file="${_VAR_FILE}"
