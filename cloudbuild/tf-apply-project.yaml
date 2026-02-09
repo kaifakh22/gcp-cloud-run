@@ -17,7 +17,8 @@ steps:
     args:
       - '-c'
       - |
-        cd gcp-cloud-run/terraform
+        ls -al
+        cd terraform
 
         terraform init \
           -backend-config="${_BACKEND_CONFIG_BUCKET}" \
@@ -26,3 +27,4 @@ steps:
         terraform apply \
           -auto-approve \
           -var-file="${_VAR_FILE}"
+
