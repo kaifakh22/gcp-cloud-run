@@ -19,7 +19,7 @@ steps:
       - '-c'
       - |
         ls -al
-        cd gcp-cloud-run/terraform
+        cd terraform
 
         terraform init \
           -backend-config="${_BACKEND_CONFIG_BUCKET}" \
