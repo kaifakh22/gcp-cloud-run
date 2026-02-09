@@ -2,13 +2,24 @@ options:
   logging: CLOUD_LOGGING_ONLY
 
 steps:
+  - name: 'ubuntu'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        echo "DEBUG VARIABLES"
+        echo "_BACKEND_CONFIG_BUCKET=${_BACKEND_CONFIG_BUCKET}"
+        echo "_BACKEND_CONFIG_PREFIX=${_BACKEND_CONFIG_PREFIX}"
+        echo "_TF_COMMAND=${_TF_COMMAND}"
+        echo "_VAR_FILE=${_VAR_FILE}"
+
   - name: 'hashicorp/terraform:1.6.6'
     entrypoint: 'sh'
     args:
       - '-c'
       - |
         ls -al
-        cd terraform
+        cd gcp-cloud-run/terraform
 
         terraform init \
           -backend-config="${_BACKEND_CONFIG_BUCKET}" \
