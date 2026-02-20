@@ -2,7 +2,7 @@ const express = require("express");
 
 const app = express();
 
-// IMPORTANT: Cloud Run provides PORT via env variable
+// IMPORTANT: Cloud Run provides PORT via env variables
 const PORT = process.env.PORT || 8080;
 
 // ─────────────────────────────────────────
