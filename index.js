@@ -31,7 +31,7 @@ const log = {
 // 🏠 Your Existing Route — just added log
 // ─────────────────────────────────────────
 app.get("/", (req, res) => {
-  log.info("Home route called", { route: "/" });   // ← ADDED
+  log.info("Home route called", { route: "/" });   // ← ADDEDD
   res.send("Hello to Node.js World v1");
 });
 
